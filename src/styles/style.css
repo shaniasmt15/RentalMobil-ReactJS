@@ -1,0 +1,164 @@
+body {
+    width: 100%;
+}
+
+h1 {
+    font-size: 36px;
+}
+/*---------------- BANNER ----------------*/
+
+section {
+    margin-bottom: 20px;
+}
+
+#hero {
+    background-color:#F1F3FF;
+}
+
+.navbar-brand {
+    background-color: #0D28A6;
+}
+
+.navbar-collapse {
+    right: 0px;
+    flex-grow: inherit;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler:focus, .navbar-toggler:active {
+    outline: none;
+}
+
+.car-img {
+    width: 570px;
+    position: relative;
+    z-index: 2;
+    left: 90px;
+    height: 350px;
+}
+
+.border {
+    border: solid 2px black;
+}
+
+.car-background {
+    background-color: #0D28A6;
+    position: absolute;
+    border-radius: 50px 0 0 0;
+    width: 100%;
+    height: 200px;
+    top: 150px;
+    left: 100px;
+}
+
+.btn-success {
+    width: 160px;
+}
+
+@media screen and (max-width: 480px) {
+    .car-background {
+        width: calc(100% - 15px);
+        height: 120px;
+        top: 65px;
+        left: 15px;
+    }
+
+    .car-img {
+        width: calc(100% - 15px);
+        height: auto;
+        left: 15px;
+    }
+    
+    .person-img {
+        height: 200px;
+        width: 200px;
+    }
+
+    .navbar-collapse {
+        width: 50%;
+        height: 100%;
+        background-color: white;
+        position: fixed;
+        right: 0;
+        top: 0;
+        margin-left: 1rem;
+        z-index: 4;
+        line-height: 30px;
+        padding: 35px 0 0 30px;
+    }
+
+    .navbar-collapse::before {
+        content: 'BCR';
+        font-weight: bold;
+    }
+    
+    .navbar-toggler {
+        z-index: 5;
+    }
+
+}
+
+/*---------------- OUR SERVICES ----------------*/
+
+#ourServices {
+    min-height: 550px;
+}
+
+.person-img {
+    position: relative;
+    left: -40px;
+}
+
+ul {
+    list-style: none;
+}
+
+.our-services {
+    position: relative;
+    left: -35px;
+    top: 23px;
+}
+
+
+/*---------------- FOOTER ----------------*/
+
+#footer {
+    min-height: 200px;
+}
+
+.links a {
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+}
+
+/*---------------- CTA ----------------*/
+
+.cta {
+    background-color: #0D28A6;
+    min-height: 320px;
+    border-radius: 13px;
+}
+
+/*---------------- FAQ ----------------*/
+
+.faq-item:hover {
+    cursor: pointer;
+}
+
+.faq > p {
+    font-weight: 400;
+}
+
+/*---------------- SEARCH FORM ----------------*/
+
+#searchBar {
+    position: relative;
+    z-index: 3;
+}
+
+/*---------------- TESTIMONI ----------------*/
+
