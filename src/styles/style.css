@@ -99,6 +99,10 @@ section {
         z-index: 5;
     }
 
+    .myCarousel {
+        width: 20px;
+    }
+
 }
 
 /*---------------- OUR SERVICES ----------------*/
@@ -109,7 +113,7 @@ section {
 
 .person-img {
     position: relative;
-    left: -40px;
+    left: -10px;
 }
 
 ul {
@@ -122,6 +126,10 @@ ul {
     top: 23px;
 }
 
+.list-services {
+    position: relative;
+    margin-left: 35px;
+}
 
 /*---------------- FOOTER ----------------*/
 
@@ -162,3 +170,30 @@ ul {
 
 /*---------------- TESTIMONI ----------------*/
 
+.carousel-control-prev {
+    width: 30px;
+    height: 30px;
+    background-color: #5cb86f;
+    border-radius: 50%;
+    bottom: -50px !important;
+    top: auto;
+    opacity: 0.8;
+}
+
+.carousel-control-next {
+    width: 30px;
+    height: 30px;
+    background-color: #5cb86f;
+    border-radius: 50%;
+    bottom: -50px !important;
+    top: auto;
+    opacity: 0.8;
+}
+
+.carousel-control-prev {
+    left: 45%;
+}
+
+.carousel-control-next {
+    right: 45%;
+}

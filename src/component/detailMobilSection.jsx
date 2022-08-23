@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 
+
 const CarDetailSection = () => {
     const [car, setCar] = useState();
     const [loading, setLoading] = useState(false);

@@ -15,18 +15,18 @@ const OurServices = () => {
                     <p className='mt-3 fw-bold'>Sewa mobil di (Lokasimu) bersama Binar Car Rental jaminan harga <br />
                     lebih murah dibandingkan yang lain, kondisi mobil baru, serta <br />
                     kualitas pelayanan terbaik untuk perjalanan wisata, bisnis, wedding,<br /> meeting, dll.</p>
-                    <ul>
+                    <div className='mt-0 list-services'>
                         <img className=" our-services " src="./Image/cek.png" alt="" />
-                            <p>Sewa Mobil Dengan Supir di Bali 12 Jam</p> 
-                        {/* <img className=" our-services " src="./Image/cek.png" alt="" /> */}
-                            <p>Sewa Mobil Lepas Kunci di Bali 24 Jam</p>
-                        {/* <img className=" our-services " src="./Image/cek.png" alt="" /> */}
-                            <p>Sewa Mobil Jangka Panjang Bulanan</p>
-                        {/* <img className=" our-services " src="./Image/cek.png" alt="" /> */}
-                            <p>Gratis Antar - Jemput Mobil di Bandara</p>
-                        {/* <img className=" our-services " src="./Image/cek.png" alt="" /> */}
-                            <p>Layanan Airport Transfer / Drop In Out</p>
-                    </ul>
+                            <p className='mb-0'>Sewa Mobil Dengan Supir di Bali 12 Jam</p> 
+                        <img className=" our-services " src="./Image/cek.png" alt="" />
+                            <p className='mb-0'>Sewa Mobil Lepas Kunci di Bali 24 Jam</p>
+                        <img className=" our-services " src="./Image/cek.png" alt="" />
+                            <p className='mb-0'>Sewa Mobil Jangka Panjang Bulanan</p>
+                        <img className=" our-services " src="./Image/cek.png" alt="" />
+                            <p className='mb-0'>Gratis Antar - Jemput Mobil di Bandara</p>
+                        <img className=" our-services " src="./Image/cek.png" alt="" />
+                            <p className='mb-0'>Layanan Airport Transfer / Drop In Out</p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -6,32 +6,34 @@ import React, { Fragment, useEffect, useState } from "react";
 
 const CarSection = () => {
     const [cars, setCars] = useState([]);
-    const [carName, setCarName] = useState('');
     const [loading, setLoading] = useState(false);
-    const [carCategory, setCategory] = useState('');
-    const [searchParams, setSearchParams] = useSearchParams();
-    const carNameParams = searchParams.get('carName');
-    const category = searchParams.get('category');
-    const price = searchParams.get('price');
+    const [filterData, setFilterData] = useState({});
 
-    const loadCar = async () => {
+      const findCarFilter = async () => {
         setLoading(true);
         try {
-            const { data } = await axios.get('https://bootcamp-rent-car.herokuapp.com/admin/car/');
-            if (carNameParams) {
-                setCars(data.filter(car => { 
-                    if (car.name && car.category) {
-                        return car.name.toLowerCase() == carNameParams.toLowerCase() && car.category == category
-                    }
-                }))
-            } else if (carName) {
-                setCars(data.filter(car => {
-                    if (car.name) {
-                        return car.name.toLowerCase().includes(carName.toLowerCase());
-                    }
-                }))
-            } else {
-                setCars(data)
+            const  data  = await axios.get('https://bootcamp-rent-car.herokuapp.com/admin/car/');
+           let newData = data.data
+           if(!filterData.carName &&  !filterData.carCategory &&  !filterData.carPrice){
+            setCars(newData)
+           }else if(filterData.carName &&  !filterData.carCategory &&  !filterData.carPrice){
+                const selectResult = newData.filter((val) => val.name?.toLowerCase() === filterData.carName.toLowerCase());
+                setCars(selectResult)
+            }else if (filterData.carName && filterData.carCategory  &&  !filterData.carPrice){
+                const selectResult = newData.filter((val) => val.name?.toLowerCase() === filterData.carName.toLowerCase() && val.category?.toLowerCase() === filterData.carCategory.toLowerCase());
+                setCars(selectResult)
+            }else{
+                if(filterData.carPrice === '400000'){
+                    console.log("a")
+                    const selectResult = newData.filter((val) => val.name?.toLowerCase() === filterData.carName.toLowerCase() && val.category?.toLowerCase() === filterData.carCategory.toLowerCase() && filterData.carPrice >= val.price );
+                    setCars(selectResult)
+                }else if (filterData.carPrice === '400000-600000'){
+                    const selectResult = newData.filter((val) => val.name?.toLowerCase() === filterData.carName.toLowerCase() && val.category?.toLowerCase() === filterData.carCategory.toLowerCase() && (val.price  >= 400000 && val.price <= 600000)) ;
+                    setCars(selectResult)
+                }else{
+                    const selectResult = newData.filter((val) => val.name?.toLowerCase() === filterData.carName.toLowerCase() && val.category?.toLowerCase() === filterData.carCategory.toLowerCase() && val.price >= 600000 );
+                    setCars(selectResult)
+                }
             }
         } catch (error) {
           console.log(error);
@@ -39,13 +41,13 @@ const CarSection = () => {
         setLoading(false);
       };
 
-    useEffect(() => {
-            loadCar();        
-    },[carName])
+    const handleSubmit= ()=>{
+        findCarFilter()
+    }
 
     return (
         <Fragment>
-            <SearchBar setCarName={setCarName} setSearchParams={setSearchParams}/>
+            <SearchBar  filterData={filterData}  handleSubmit={handleSubmit} setFilterData={setFilterData}/>
             <section id="cars">
                 <div className="container">
                     <div className="row">
@@ -68,7 +70,9 @@ const CarSection = () => {
                                             </div>
                                         )
                                     })
-                                ) : (
+                                ) :  cars.length === 0 ? (
+                                    null
+                                ) :(
                                     <h1>Mobil Tidak Ditemukan</h1>
                                 )
                             ) : (
@@ -79,7 +83,6 @@ const CarSection = () => {
                 </div>
             </section>
         </Fragment>
-        
     )
 }
 
